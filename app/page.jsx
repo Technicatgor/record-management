@@ -1,3 +1,5 @@
+"use client"
+
 import SideMenu from '@components/SideMenu'
 import React from 'react'
 
