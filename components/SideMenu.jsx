@@ -1,8 +1,22 @@
+"use client"
 import React from 'react'
 
 const SideMenu = () => {
+	const menu_items = [
+		{ name: "Home" },
+		{ name: "Devices" },
+		{ name: "Profile" },
+		{ name: "Sign Out" },
+	]
 	return (
-		<div className='bg-blue-950 w-1/5'>SideMenu</div>
+		<div className='py-6 flex-col flex-center'>
+			<button className='outline_btn' >Create</button>
+			<ul className='menu_list'>
+				{menu_items.map((item, i) => (
+					<li key={i} className='my-3'>{item.name}</li>
+				))}
+			</ul>
+		</div>
 	)
 }
 
