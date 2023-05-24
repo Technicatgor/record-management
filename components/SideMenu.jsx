@@ -10,7 +10,6 @@ const SideMenu = () => {
 	]
 	return (
 		<div className='py-6 flex-col flex-center'>
-			<button className='outline_btn' >Create</button>
 			<ul className='menu_list'>
 				{menu_items.map((item, i) => (
 					<li key={i} className='my-3'>{item.name}</li>

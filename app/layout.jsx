@@ -1,4 +1,3 @@
-import SideMenu from '@components/SideMenu'
 import '@styles/globals.css'
 
 export const metadata = {
