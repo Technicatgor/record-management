@@ -1,10 +1,9 @@
 ## Learning Nextjs 13
 
-My Dev Environment:
+### My Dev Environment:
 - DB - MYSQL
 - CMS - nocodb
 - API Platform - hoppscotch
-
 
 ## Getting Started
 
