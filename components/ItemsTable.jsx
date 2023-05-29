@@ -1,5 +1,5 @@
 "use client"
-import { headers } from '@utils/table-headers'
+import { headers } from '@utils/utils'
 import React, { useEffect, useState } from 'react'
 import DrawerForm from './DrawerForm'
 
