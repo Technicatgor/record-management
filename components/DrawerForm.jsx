@@ -15,8 +15,16 @@ const DrawerForm = ({ isOpen, setIsOpen }) => {
 
 	}
 
-	const handleSubmit = () => {
+	const handleSubmit = async (e) => {
 		console.log(inputValue)
+		e.preventDefault()
+		await fetch('/api/devices/new', {
+			method: 'POST',
+			body: JSON.stringify(inputValue),
+		})
+			.catch(error => {
+				console.log(error)
+			})
 	}
 
 	return (
@@ -34,16 +42,20 @@ const DrawerForm = ({ isOpen, setIsOpen }) => {
 							{
 								item.item.selectOptions ?
 									<select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-										name={item.item.title}
+										name={item.item.name}
+										defaultValue={"<--select-->"}
 										onChange={(e, data) => handleChange(e, data)}
 									>
 										{item.item.selectOptions?.map((option, i) => (
-											<option key={i}>{option}</option>
+											<option
+												key={i}
+												disabled={option === "<--select-->"}
+											>{option}</option>
 										))}
 									</select> :
 									<input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
 										type={item.item.type}
-										name={item.item.title}
+										name={item.item.name}
 										onChange={(e, data) => handleChange(e, data)}
 										required />
 							}
@@ -52,7 +64,7 @@ const DrawerForm = ({ isOpen, setIsOpen }) => {
 				}
 				)}
 				<div className="mt-4 mx-auto w-2/3 flex-col items-center justify-center">
-					<button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-blue-800" type="button" onClick={handleSubmit}>
+					<button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-blue-800" type="button" onClick={(e) => handleSubmit(e)}>
 						Submit
 					</button>
 				</div>

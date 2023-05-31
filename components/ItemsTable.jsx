@@ -9,14 +9,14 @@ const ItemsTable = () => {
 
 	useEffect(async () => {
 
-		const fetchPosts = async () => {
+		const getRecord = async () => {
 			const response = await fetch('/api/devices')
 			const data = await response.json()
 
 			setDevices(data)
 		}
 
-		fetchPosts()
+		getRecord()
 
 	}, [])
 	return (
